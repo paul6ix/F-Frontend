@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,
+				initial-scale=1,
+				shrink-to-fit=no">
+    <title>
+        function that receives a JSON object
+    </title>
+
+    <link rel="stylesheet"
+          href=
+                  "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+<body>
+<div class="container">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">
+        Show modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Printed colors</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="show_colors"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include jQuery and other required
+files for Bootstrap -->
+<script src=
+                "https://code.jquery.com/jquery-3.3.1.min.js">
+</script>
+<script src=
+                "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script src=
+                "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        let colordata = [{"color": "Blue",}, {"color": "Green",}, {"color": "Red",},];
+        let new_data = JSON.stringify(colordata)
+        const data = JSON.parse(new_data)
+        let index;
+        for (index = 0; index < data.length; ++index) {
+
+            let randomIndex = Math.floor(Math.random() * 3);
+            let color_name = data[randomIndex]['color'];
+
+
+            document.getElementById("show_colors").innerHTML += '<br>' + color_name;
+
+        }
+    });
+
+
+</script>
+</body>
+</html>

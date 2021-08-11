@@ -1,0 +1,27 @@
+
+<script>
+
+
+    let myPromise = new Promise((resolve, reject) => {
+
+    // Must be an array for it to be valid
+
+        let x = ['p0', 'p1', 'p2'];
+        if (Array.isArray(x)) {
+            resolve(x)
+        }
+        else {
+            reject('This is not an array')
+        }
+
+    })
+    myPromise.then((resolve) => {
+        for (i = 0; i < resolve.length; i++) {
+            console.log(resolve[i])
+        }
+    }).catch((reject) => {
+        console.log(reject)
+    })
+
+
+</script>
